@@ -1,0 +1,30 @@
+@import "global.css";
+
+.container {
+    padding: 0 60px;
+}
+
+.delete-btn {
+    background-color: rgb(211, 76, 76);
+}
+
+button {
+    border-radius: 14px;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover, button:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+table {
+    border-radius: 5px;
+    border: 1px rgba(0, 0, 0, 0.39) solid;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+border-collapse: collapse;
+}

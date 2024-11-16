@@ -1,0 +1,144 @@
+@import "global.css";
+
+.titulo {
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.titulo h1 {
+    font-size: 3.6rem;
+}
+
+.titulo h1 span:nth-of-type(2) {
+    color: var(--cor-prin); 
+    text-shadow: 2px 2px 4px rgba(37, 124, 255, 0.5);
+}
+
+.titulo button {
+    border-radius: 100%;
+    padding: 0 3px;
+    background-color: #f5f5f5;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.titulo button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 4px rgba(150, 150, 150, 0.1);
+}
+
+.sessao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 2% 2%;
+    padding: 35px 70px;
+    background-color: #aec8ff;
+    border-radius: 25px;
+}
+
+.sessao img {
+    animation: moverImagemVertical 4s ease-in-out infinite; /* Aplica a animação */
+}
+
+.sessao h1 {
+    font-size: 4rem;
+    text-align: center;
+    color: white;
+}
+
+.lado-esquerdo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lado-esquerdo a {
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--cor-prin);
+    margin-top: 15px;
+    font-size: 20px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.lado-esquerdo a:hover {
+    box-shadow: 0 4px 12px var(--cor-prin); 
+    transform: scale(1.1); 
+}
+
+.lado-esquerdo a:nth-of-type(1) {
+    margin-top: 30px;
+}
+
+.lado-esquerdo a:nth-of-type(2) {
+    background-color: white;
+    color: black;
+}
+
+.lado-esquerdo a:nth-of-type(2):hover {
+    box-shadow: 0 4px 12px white;
+}
+
+
+
+@keyframes moverImagemVertical {
+    0% {
+        transform: translateY(0); /* Posição inicial */
+    }
+    50% {
+        transform: translateY(-10px); /* Move 10px para cima */
+    }
+    100% {
+        transform: translateY(0); /* Retorna à posição inicial */
+    }
+}
+
+.direita {
+    display: flex;
+    gap: 20px;
+}
+
+.seta {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    bottom: 2%;
+    transform: translateX(-50%);
+}
+
+.seta button {
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    background: none; 
+    font: inherit; 
+    color: inherit; 
+    cursor: pointer;
+    border-radius: 100%;
+    border: none;
+    transition: all 0.3s ease;
+    background-color: #f5f5f5;
+}
+
+.seta button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px #f5f5f5; 
+}
+
+.seta button img {
+    margin-top: 5px;
+    border: 100%;
+    width: 66px;
+    height: auto;
+}
+
+.vazio {
+    height: 100px;
+}
