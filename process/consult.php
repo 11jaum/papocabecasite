@@ -8,10 +8,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date = mysqli_real_escape_string($con, $_POST['date']);
     $time = mysqli_real_escape_string($con, $_POST['time']);
     $text = mysqli_real_escape_string($con, $_POST['text']);
+    $contato = mysqli_real_escape_string($con, $_POST['contato']);
 
     // Insert the data into the database
-    $sql = "INSERT INTO consulta (username, nome, data_consulta, hora, descricao)
-            VALUES ('$username_consulta', '$name_consulta', '$date', '$time', '$text')";
+    $sql = "INSERT INTO consulta (username, nome, data_consulta, hora, descricao, contato)
+            VALUES ('$username_consulta', '$name_consulta', '$date', '$time', '$text', '$contato')";
 
     if (mysqli_query($con, $sql)) {
         // Success

@@ -28,6 +28,7 @@
                     <th>Data escolhida</th>
                     <th>Horário escolhido</th>
                     <th>Observações</th>
+                    <th>Extra</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -38,7 +39,6 @@
     </div>
 
     <script>
-        // Função para buscar e exibir as consultas
         function fetchConsultas() {
             fetch('process/consultas.php')
                 .then(response => response.json())
@@ -47,40 +47,41 @@
                         Swal.fire('Erro', data.error, 'error');
                         return;
                     }
-                    if (data.message) {
-                        Swal.fire('Atenção', data.message, 'info');
-                        return;
-                    }
-
+        
                     const tableBody = document.querySelector('#consultasTable tbody');
-                    tableBody.innerHTML = ''; // Limpar a tabela antes de inserir os novos dados
-
+                    tableBody.innerHTML = '';
+        
                     data.forEach(consulta => {
                         const row = document.createElement('tr');
+        
+                        // Formata data e hora
+                        const dataFormatada = new Date(consulta.data_consulta).toLocaleDateString('pt-BR');
+                        const horaFormatada = consulta.hora.slice(0, 5); // Pega HH:mm
                         
-                        const dataFormatada = new Date(consulta.data_consulta);
-                        const dataString = dataFormatada.toLocaleDateString('pt-BR');
-                        const horaFormatada = new Date('1970-01-01T' + consulta.hora + 'Z');
-                        const horaString = horaFormatada.toLocaleTimeString('pt-BR');
-
-                        row.innerHTML = `
-                            <td>${consulta.username}</td>
-                            <td>${consulta.nome}</td>
-                            <td>${dataString}</td>
-                            <td>${horaString}</td>
-                            <td>${consulta.descricao}</td>
-                            <td>
-                                <button class="accept-btn" data-id="${consulta.id}">Aceitar</button>
-                                <button class="delete-btn" data-id="${consulta.id}">Recusar</button>
-                            </td>
-                        `;
+                        const contatoContent = consulta.contato 
+                        ? `<span>${consulta.contato}</span>` 
+                        : '<span>Sem contato disponível</span>';
+                    
+                    row.innerHTML = `
+                        <td>${consulta.username}</td>
+                        <td>${consulta.nome}</td>
+                        <td>${dataFormatada}</td>
+                        <td>${horaFormatada}</td>
+                        <td>${consulta.descricao}</td>
+                        <td>${contatoContent}</td> <!-- Exibe o contato -->
+                        <td>
+                            <button class="accept-btn" data-id="${consulta.id}">Aceitar</button>
+                            <button class="delete-btn" data-id="${consulta.id}">Recusar</button>
+                        </td>
+                    `;
+                    
                         tableBody.appendChild(row);
                     });
-
+        
                     addDeleteEventListeners();
                     addAcceptEventListeners();
                 })
-                .catch(error => {
+                .catch(() => {
                     Swal.fire('Erro', 'Não foi possível carregar as consultas.', 'error');
                 });
         }

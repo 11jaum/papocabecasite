@@ -82,7 +82,7 @@
     } else {
         ?>
         <div class="empty">
-            <a href="inicial.html" style="text-align: center;"><h3>Voltar para a tela inicial</h3></a>
+            <a href="index.html" style="text-align: center;"><h3>Voltar para a tela inicial</h3></a>
             <br>
             <img src="img/empty-chat.png" />
             <p>Nenhuma conversa iniciada</p>

@@ -1,82 +1,156 @@
 @import "global.css";
 
-label, button, textarea {
-    margin: 0 30px;
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 3rem;
+}
+
+h2 {
+    margin-top: 16px;
+    text-align: center;
+}
+
+span {
+    color: var(--cor-prin); 
+    text-shadow: 2px 2px 4px rgba(37, 124, 255, 0.5);
 }
 
 .container {
-    padding: 0px 30px 40px;
-}
-
-.branco {
-    padding: 20px;
-}
-
-.nav {
     display: flex;
-    align-items: center;
-    margin: 10px 10px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px; /* Espaçamento entre as colunas */
+    padding: 20px;
+    margin: 30px 0 0;
 }
 
-.nav a {
-    text-decoration: none;
-    font-size: 17px;
-    color: white;
-    background-color: var(--cor-prin);
-    margin: 0 10px;
-    padding: 15px;
-    border-radius: 25px;
-    transition: font-size 0.3s ease;
+form {
+    display: flex;
+    flex-direction: row; /* Organiza os itens em linha */
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px; /* Limita a largura total */
+    gap: 20px;
 }
 
+.left, .right {
+    display: flex;
+    flex-direction: column; /* Organiza itens verticalmente em cada coluna */
+    gap: 15px;
+    width: 48%; /* Ajusta para dividir o espaço entre as duas colunas */
+}
 
 .right {
     display: flex;
-    margin-left: auto;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%; /* Garante que a altura ocupe toda a coluna */
 }
 
-button {
-    border: none;
-    font-size: 13   px;
-    color: white;
-    background-color: var(--cor-prin);
-    outline: none;
-    padding: 20px 50px;
-    border-radius: 20px;
-}
-
-fieldset {
-    margin: 0 25px;
-    border-radius: 15px;
-    padding-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+form label {
+    font-weight: bold;
 }
 
 
-label {
-    padding-bottom: 10px;
-    font-size: 18px;
-}
-
-textarea {
-    width: 60%;
-    height: 100px; 
-    padding: 10px;
-    resize: vertical; 
-    box-sizing: border-box; 
-    margin-bottom: 20px;
-    border-radius: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.397);
+input, textarea {
+    margin: 13px 0 24px;
+    border-radius: 5px;
+    border: solid 0.5px rgba(0, 0, 0, 0.137);
+    background-color: #f7f7f7;
 }
 
 input {
-    border: 1px solid rgba(0, 0, 0, 0.384);
-    border-radius: 5px;
-    margin: 0 30px 20px;
-    padding: 5px;
+    width: 300px;
+    height: 40px;
 }
 
-input:focus, textarea:focus {
-    border: 1px solid rgba(0, 0, 0, 0.39);
-    outline: none;
+textarea {
+    width: 300px;
+    height: 70px;
 }
+
+.container form label {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: -10px;
+}
+
+.container button {
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #aec8ff;
+    margin-top: 15px;
+    font-size: 20px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    margin-bottom: 40px;
+    position: absolute;
+    top: 610px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.container button:hover {
+    width: 210px;
+    box-shadow: 0 4px 12px #aec8ff; 
+}   
+
+input[type="date"] {
+    appearance: none; /* Remove o estilo padrão */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(50%); /* Alterar a aparência do ícone, se necessário */
+}
+
+input[type="time"] {
+    appearance: none; /* Remove o estilo padrão */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(50%); /* Personaliza o ícone de relógio */
+}
+
+.link-voltar a {
+    color: black;
+}
+
+.link-voltar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0 60px;
+    position: relative;
+    top: 100px;
+}
+

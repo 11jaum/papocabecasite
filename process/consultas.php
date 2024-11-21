@@ -7,22 +7,24 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-// Buscar consultas agendadas
-$sql = "SELECT * FROM consulta";
+// Buscar consultas agendadas (selecione apenas os campos necessários)
+$sql = "SELECT id, username, nome, data_consulta, hora, descricao, extra FROM consulta";
 $result = mysqli_query($con, $sql);
 
 if (!$result) {
-    die(json_encode(["error" => "Erro na consulta: " . mysqli_error($con)]));
+    echo json_encode(["error" => "Erro na consulta: " . mysqli_error($con)]);
+    exit();
 }
 
 $consultas = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-// Verificar se há resultados
-if (count($consultas) > 0) {
+// Verificar se há resultados e retornar o JSON
+if (!empty($consultas)) {
     echo json_encode($consultas);
 } else {
     echo json_encode(["message" => "Nenhuma consulta agendada"]);
 }
 
+// Fechar conexão com o banco de dados
 mysqli_close($con);
 ?>

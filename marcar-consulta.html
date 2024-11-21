@@ -12,34 +12,46 @@
     <title>PapoCabeça</title>
 </head>
 <body>
-    <div class="nav">
-        <img src="img/pc_img_black.png" alt="" style="height: 120px; width: auto;">
-        <div class="right">
-            <a href="index.html">Ir para a Tela de Conversas</a>
-            <a href="index.html">Ir para a Tela Inicial</a>
-        </div>
-    </div>
 
+    <h1>Papo<span>Cabeça</span></h1>
+
+    <h2> Marque sua consulta </h2>
+    
     <div class="container">
         <form id="consultaForm" method="post">
-            <fieldset>
-                <legend><h1>Marcar consulta</h1></legend>
-                <div class="branco"></div>
-                <label for="username_consulta">Nome de usuário</label> <br>
-                <input type="text" name="username_consulta" id="usernametext" required> <br>
-                <label for="name_consulta">Seu nome</label> <br>
-                <input type="text" name="name_consulta" id="nametext" required> <br>
-                <label for="date">Data que deseja a consulta</label> <br>
-                <input type="date" name="date" id="date" required> <br>
-                <label for="time">Horário que deseja</label> <br>
-                <input type="time" name="time" id="time" required> <br>
-                <label for="text">Observações extras</label> <br>
-                <textarea id="message" name="text"></textarea> <br>
-                <button type="submit">Enviar</button>
-                <div class="branco"></div>
-            </fieldset>
+            <div class="left">
+                <label for="username_consulta">Nome de usuário</label>
+                <input type="text" name="username_consulta" id="usernametext" required>
+    
+                <label for="name_consulta">Seu nome</label>
+                <input type="text" name="name_consulta" id="nametext" required>
+    
+                <label for="date">Data que deseja a consulta</label>
+                <input type="date" name="date" id="date" required>
+            </div>
+    
+            <div class="right">
+                <label for="time">Horário que deseja</label>
+                <input type="time" name="time" id="time" required>
+    
+                <label for="text">Observações extras</label>
+                <textarea id="message" name="text"></textarea>
+    
+                <label for="contato">Contato extra (opcional)</label>
+                <input type="text" name="contato" id="contato">
+            </div>
+    
+            <button type="submit">Enviar</button>
         </form>
     </div>
+
+    
+    <div class="link-voltar">
+        <a href="index.html">Volte para a tela inicial...</a>
+    </div>
+   
+    
+    
 
     <script>
         document.getElementById('consultaForm').addEventListener('submit', function(event) {
