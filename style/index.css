@@ -178,18 +178,43 @@ header {
     margin: auto;
     overflow: hidden;
     padding-top: 0.5vw;
-  }
+}
   
-  .carousel-images {
+.carousel-images {
     display: flex; /* Organiza as imagens em linha */
     width: 100%; /* Largura inicial */
     transition: transform 0.5s ease-in-out; /* Efeito de deslizamento */
-  }
+}
   
-  .carousel-images img {
+.carousel-images img {
     width: 100%; /* Cada imagem ocupa 100% da largura do carrossel */
     flex-shrink: 0; /* Evita encolhimento */
     object-fit: cover; /* Ajusta a imagem sem distorção */
-  }
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -140px;
+    margin: 0 5%;
+}
+
+h1 {
+    text-align: left;
+    position: relative;
+    top: -140px;
+    margin: 0 5% 1%;
+    font-size: 2.8rem;
+}
   
-  
+span {
+    color: var(--cor-prin);
+    text-shadow: 2px 2px 4px rgba(37, 124, 255, 0.5);
+}
+
+.about p {
+    font-size: 1.25rem;
+}
+
