@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="style/psicologo.css">
+    <link rel="icon" href="img/icone.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style/sweetalert2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/sweetalert2.js"></script>
+    <title>PapoCabeça</title>
+</head>
+<body>
+    <h1>Papo<span>Cabeça</span></h1>
+    <h2>Registro de Psicólogo</h2>
+
+    <div class="duvida">
+        <a href="sobre_psico.html">Como funciona o registro do psicólogo?</a>
+    </div>
+
+    <div class="container">
+        <form id="registroPsicologoForm" method="post">
+            <div class="left">
+                <label for="username_psicologo">Nome de usuário</label>
+                <input type="text" name="username_psicologo" id="username_psicologo" required>
+
+                <label for="nome_psicologo">Nome Completo</label>
+                <input type="text" name="nome_psicologo" id="nome_psicologo" required>
+
+                <label for="cpf_psicologo">CPF</label>
+                <input type="text" name="cpf_psicologo" id="cpf_psicologo" required>
+
+                <label for="disponibilidade">Disponibilidade para consulta</label>
+                <textarea id="disponibilidade" name="disponibilidade" required></textarea>
+            </div>
+
+            <div class="right">
+                <label for="especialidade">Especialidade</label>
+                <input type="text" name="especialidade" id="especialidade" required>
+
+                <label for="crp">Número de CRP</label>
+                <input type="text" name="crp" id="crp" required>
+
+                <label for="contato">Email</label>
+                <input type="text" name="contato" id="contato" required>
+
+                <label for="descricao">Descrição sobre você</label>
+                <textarea id="descricao" name="descricao" required></textarea>
+            </div>
+
+            <button type="submit">Registrar Psicólogo</button>
+        </form>
+    </div>
+
+    <div class="link-voltar">
+        <a href="auth.html">Voltar</a>
+    </div>
+
+    <script>
+        document.getElementById('registroPsicologoForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio normal do formulário
+
+    const formData = new FormData(this);
+
+    fetch('process/psicologo.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())  // Espera que o PHP retorne um JSON
+    .then(data => {
+        if (data.status === "success") {
+            Swal.fire({
+                icon: 'success',
+                title: 'Psicólogo registrado com sucesso!',
+                text: data.message,
+            }).then(() => {
+                window.location.reload();  // Opcional: Recarrega a página ou redireciona
+            });
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro!',
+                text: data.message,
+            });
+        }
+    })
+    .catch(error => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro de conexão!',
+            text: 'Não foi possível conectar ao servidor.',
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
