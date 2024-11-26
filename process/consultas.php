@@ -8,7 +8,7 @@ if (mysqli_connect_errno()) {
 }
 
 // Buscar consultas agendadas (selecione apenas os campos necessários)
-$sql = "SELECT id, username, nome, data_consulta, hora, descricao, extra FROM consulta";
+$sql = "SELECT id, username, nome, data_consulta, hora, descricao, contato FROM consulta";
 $result = mysqli_query($con, $sql);
 
 if (!$result) {

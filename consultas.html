@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="style/marcar-consulta.css  ">
     <link type="text/css" rel="stylesheet" href="style/consultas.css">
+    
     <link rel="icon" href="img/icone.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Consultas Agendadas</title>
@@ -47,27 +47,25 @@
         
                     data.forEach(consulta => {
                         const row = document.createElement('tr');
-        
-                        // Formata data e hora
-                        const dataFormatada = new Date(consulta.data_consulta).toLocaleDateString('pt-BR');
-                        const horaFormatada = consulta.hora.slice(0, 5); // Pega HH:mm
                         
+                        const dataFormatada = new Date(consulta.data_consulta).toLocaleDateString('pt-BR');
+                        const horaFormatada = consulta.hora.slice(0, 5);
                         const contatoContent = consulta.contato 
-                        ? `<span>${consulta.contato}</span>` 
-                        : '<span>Sem contato disponível</span>';
-                    
-                    row.innerHTML = `
-                        <td>${consulta.username}</td>
-                        <td>${consulta.nome}</td>
-                        <td>${dataFormatada}</td>
-                        <td>${horaFormatada}</td>
-                        <td>${consulta.descricao}</td>
-                        <td>${contatoContent}</td> <!-- Exibe o contato -->
-                        <td>
-                            <button class="accept-btn" data-id="${consulta.id}">Aceitar</button>
-                            <button class="delete-btn" data-id="${consulta.id}">Recusar</button>
-                        </td>
-                    `;
+                            ? `<span>${consulta.contato}</span>` 
+                            : '<span>Sem contato disponível</span>';
+                        
+                        row.innerHTML = `
+                            <td>${consulta.username}</td>
+                            <td>${consulta.nome}</td>
+                            <td>${dataFormatada}</td>
+                            <td>${horaFormatada}</td>
+                            <td>${consulta.descricao}</td>
+                            <td>${contatoContent}</td>
+                            <td>
+                                <button class="accept-btn" data-id="${consulta.id}">Aceitar</button>
+                                <button class="delete-btn" data-id="${consulta.id}">Recusar</button>
+                            </td>
+                        `;
                     
                         tableBody.appendChild(row);
                     });
