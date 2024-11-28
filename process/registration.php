@@ -23,6 +23,12 @@
             die(header("HTTP/1.0 401 Username existente"));
         }
 
+        // Impede nomes começando com "Psi"
+        if (stripos($username, 'Psi') === 0) {
+            die(header("HTTP/1.0 401 Nome de usuário inválido para a segurança do site"));
+        }
+
+
         // Check if email already exists
         $checkEmail = $con->prepare("SELECT Id FROM User WHERE Email = ?");
         $checkEmail->bind_param("s", $email);

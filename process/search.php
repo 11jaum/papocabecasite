@@ -1,11 +1,24 @@
 <?php
     include("check.php");
 
-    if ($_GET["term"]){
-        $username = mysqli_real_escape_string($con, $_GET["term"]);
+    session_start();
+    $username = $_SESSION['username']; // Verifique se a variável de sessão foi definida em check.php
 
-        // Query
-        $stmt = $con->prepare("SELECT Id, Username, Picture FROM User WHERE (Username LIKE '%$username%') ORDER BY Username DESC LIMIT 20");
+    
+    // Verifica se o nome de usuário contém "Psi"
+    if (strpos($username, 'Psi') === false) {
+        die('<p class="noResults">Apenas psicólogos podem usar a pesquisa.</p>');
+    }
+
+    // Executa a pesquisa se "Psi" for encontrado no nome do usuário
+    if (isset($_GET["term"])) {
+        $searchTerm = mysqli_real_escape_string($con, $_GET["term"]);
+
+        $stmt = $con->prepare("SELECT Id, Username, Picture 
+                               FROM User 
+                               WHERE Username LIKE '%$searchTerm%' 
+                               ORDER BY Username DESC 
+                               LIMIT 20");
         $stmt->execute();
         $result = $stmt->get_result();
         $count = $result->num_rows;

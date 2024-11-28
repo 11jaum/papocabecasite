@@ -91,19 +91,33 @@
         }
 
         function search() {
-            var term = $( "input.searchField" ).val();
-            if (term.length >= 3) {
-                $.ajax({
-                    url: 'process/search.php?term=' + term,
-                    success: function (data) {
-                        $('#searchContainer').show();
-                        $('#searchContainer').html(data);
-                    }
-                });
+            var term = $("input.searchField").val();
+            var username = $('input[name="username"]').val(); // Supondo que você tenha o nome de usuário em um campo oculto ou em um elemento no DOM
+        
+            // Verifica se o nome de usuário contém "Psi"
+            if (username.includes("Psi")) {
+                if (term.length >= 3) {
+                    $.ajax({
+                        url: 'process/search.php?term=' + term,
+                        success: function (data) {
+                            $('#searchContainer').show();
+                            $('#searchContainer').html(data);
+                        }
+                    });
+                } else {
+                    $('#searchContainer').hide();
+                }
             } else {
                 $('#searchContainer').hide();
+                Swal.fire({
+                    title: 'Atenção',
+                    text: 'A pesquisa só está disponivel para psicólogos.',
+                    icon: 'info',
+                    confirmButtonText: 'Ok'
+                });
             }
         }
+        
 
         function logout() {
             $.ajax({

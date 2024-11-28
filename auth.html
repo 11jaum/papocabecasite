@@ -83,7 +83,10 @@
                     $('#loading').hide();
                 },
                 success: function (data) {
-                    location.href = "./";
+                    const response = JSON.parse(data);
+                    if (response.redirect) {
+                        location.href = response.redirect;
+                    }
                 },
                 error: function (error) {
                     console.error(error);
@@ -91,7 +94,7 @@
                 }
             });
         });
-
+        
         // Submissão de formulário para registro
         $('#registrar').on('submit', function (e) {
             e.preventDefault();

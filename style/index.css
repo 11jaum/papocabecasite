@@ -1,5 +1,9 @@
 @import "global.css";
 
+html {
+    scroll-behavior: smooth;
+}
+
 a {
     text-decoration: none;
 }
@@ -199,6 +203,7 @@ header {
     position: relative;
     top: -140px;
     margin: 0 5%;
+    gap: 100px;
 }
 
 h1 {
@@ -215,6 +220,76 @@ span {
 }
 
 .about p {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
 }
 
+.vazio {
+    height: 200px;
+}
+
+#contato {
+    margin: -5% 5% -4%;
+}
+
+.contatos {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 40px;
+    padding-bottom: 50px;
+    margin: 0 5%;
+}
+
+.contatos p {
+    font-size: 1.4rem;
+}
+
+
+.qm-somos p {
+    font-size: 1.35rem;
+    margin: -7% 5% 6%;
+}
+
+
+.footer {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content h3 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.social {
+    margin-top: 10px;
+}
+
+.social .twitter-link {
+    text-decoration: none;
+    color: #1da1f2;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.social .twitter-link img {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-bottom {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #cccccc;
+}

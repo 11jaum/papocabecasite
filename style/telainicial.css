@@ -17,17 +17,25 @@
 }
 
 .titulo button {
-    border-radius: 100%;
-    padding: 0 3px;
     background-color: #f5f5f5;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    border-radius: 19px;
+    height: 80px;
+    width: 120px;
+    text-align: center;
 }
 
 .titulo button:hover {
     transform: scale(1.1);
     box-shadow: 0 2px 4px rgba(150, 150, 150, 0.1);
+}
+
+.titulo button a {
+    text-decoration: none; 
+    color:black; 
+    font-weight: bolder;
 }
 
 .sessao {
@@ -99,11 +107,6 @@
     100% {
         transform: translateY(0); /* Retorna à posição inicial */
     }
-}
-
-.direita {
-    display: flex;
-    gap: 20px;
 }
 
 .seta {
@@ -288,3 +291,10 @@
 
 
 }
+
+.disabled-link {
+    pointer-events: none;
+    cursor: default;
+    color: gray;
+}
+
